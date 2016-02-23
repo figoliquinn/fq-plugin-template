@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: FQ Plugin Template
-Plugin URI: https://github.com/figoliquinn/fq-plugin-template
+Plugin URI: http://figoliquinn.github.io/fq-plugin-template/
 Description: A light-weight object-oriented wordpress plugin template
 Version: 1.0
 Author: Figoli Quinn

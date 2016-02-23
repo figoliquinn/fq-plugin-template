@@ -125,15 +125,15 @@ if(!class_exists('FQ_Plugin_Template'))
 		public function __construct()
 		{
 
-
+			// REQUIRED PLUGINS
 			require_once dirname( __FILE__ ) . '/class-tgm-plugin-activation.php';
 			add_action( 'tgmpa_register', array($this,'required_plugins') );
 
+			// DO ADMIN NOTICES
 			add_action( 'admin_notices', array($this,'plugin_admin_notices') );
 
+			// DO START UP FUNCTION
 			add_action('init', array($this,'start_up'));
-
-			add_filter('plugin_row_meta', array($this,'plugin_row_meta_links'), 10, 2);
 
 		} // END public function __construct
 
@@ -245,36 +245,6 @@ if(!class_exists('FQ_Plugin_Template'))
 			array_unshift($links, $settings_link);
 			return $links;
 		}
-
-
-
-
-		function plugin_row_meta_links($links, $file) {
-
-			if ( $file == plugin_basename(dirname(__FILE__).'/fq-plugin-template.php') ) {
-				$links[] = '<a href="'.admin_url('options-general.php?page=plugin-options').'">Help</a>';
-				$links[] = '<a href="'.admin_url('options-general.php?page=plugin-options').'">Settings</a>';
-			}
-			return $links;
-		}
-
-
-
-
-
-		function plugin_option_page() {
-			
-			add_options_page('Plugin Options','Plugin Options','manage_options','plugin-options', array($this,'display_options_page'));
-		}
-
-
-
-
-		function display_options_page() {
-			
-
-		}
-
 
 
 
